@@ -1,23 +1,24 @@
-Overview:  
+Overview:<br/> 
 Home k3s HA environment consisting of the following servers:
   - 2 x Intel NUCS (running Proxmox for virtualization)
   - 1 x MySQL server
   - 1 x Nginx load balancer
   - 2 x k3s master nodes
-  - 3 x k3s worker nodes  
+  - 3 x k3s worker nodes
+
 The installation of all software on the operating system is done via Ansible playbooks.
 
-Hardware:  
-  - Intel NUCS (Proxmox Virtualaztion Servers)
-    CPU: i5-3427U CPU @ 1.80GHz (1 Socket)
-    RAM: 16 GB
-    SSD: 256 GB 
-  - All virtual machines (Ubuntu 20.04 LTS)
-    CPU: 1 core
-    RAM: 2 GB
-    SSD: 20 GB
+Hardware:<br/>
+Intel NUCS (Proxmox Virtualaztion Servers)
+  - CPU: i5-3427U CPU @ 1.80GHz (1 Socket)
+  - RAM: 16 GB
+  - SSD: 256 GB 
+All virtual machines (Ubuntu 20.04 LTS)
+  - CPU: 1 core
+  - RAM: 2 GB
+  - SSD: 20 GB
 
-Prerequisites:
+Prerequisites:<br/>
   - Virtual machines provisioned on Proxmox
   - Static IP addresses assigned to each virtual machine
   - SSH key access configured on each virtual machine
