@@ -1,0 +1,94 @@
+# install-mysql.yaml
+
+---
+  - hosts: [mysql]
+    become: true
+    gather_facts: false
+
+    vars_files:
+      - ../secrets/secrets.yml
+
+    tasks: 
+      - name: install mysql-server and dependencies
+        apt:
+          name: 
+            - python3-pymysql
+            - mysql-server
+          state: present
+
+      - name: reset root user password
+        community.mysql.mysql_user:
+          host: 'localhost'
+          name: root
+          password: "{{ mysql_password }}"
+          priv: '*.*:ALL,GRANT' 
+          login_unix_socket: /var/run/mysqld/mysqld.sock
+
+      - name: create /root/.my.cnf
+        blockinfile:
+          create: yes
+          path: /root/.my.cnf
+          owner: root
+          group: root
+          block: |
+            [client]
+            user=root
+            password={{ mysql_password }}
+
+      - name: remove anonymous mysql user accounts
+        community.mysql.mysql_user:
+          name: ''
+          host_all: yes
+          state: absent
+
+      - name: remove test database 
+        community.mysql.mysql_db:
+          name: test
+          state: absent
+
+      - name: disable remote root login
+        community.mysql.mysql_query:
+          login_db: mysql
+          query: 
+            - DELETE FROM user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
+            - FLUSH PRIVILEGES;
+
+      - name: enable remote connections to mysql
+        ansible.builtin.lineinfile:
+          path: /etc/mysql/mysql.conf.d/mysqld.cnf
+          regexp: '^bind-address'
+          line: bind-address=0.0.0.0
+
+      - name: create k3s database
+        community.mysql.mysql_db:
+          name: "{{ k3s_database }}"
+          state: present
+
+      - name: create k3s-admin user
+        community.mysql.mysql_user:
+          name: "{{ k3s_mysql_user }}"
+          password: "{{ k3s_mysql_password }}"
+          host: '%'
+          state: present
+          priv:
+            'k3s.*': 'ALL,GRANT'
+
+      - name: flush privileges
+        community.mysql.mysql_query:
+          login_db: mysql
+          query: 
+            - FLUSH PRIVILEGES;
+
+      - name: restart mysql service
+        ansible.builtin.systemd:
+          state: restarted
+          name: mysql
+
+      - name: check for server reboot
+        stat:
+          path: /var/run/reboot-required
+        register: reboot_required
+
+      - name: reboot server
+        reboot:
+        when: reboot_required.stat.exists == true

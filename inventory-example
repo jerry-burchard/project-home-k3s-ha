@@ -1,0 +1,34 @@
+# hosts-dev
+
+all:
+  children:
+    k3smaster: 
+      hosts:
+        <hostname-01>: 
+          ansible_host: <host-01-ip>
+        <hostname-02>: 
+          ansible_host: <host-02-ip>
+
+    k3sworker:
+      hosts:
+        <hostname-03>:
+          ansible_host: <host-03-ip>
+        <hostname-04>:
+          ansible_host: <host-04-ip>
+        <hostname-05>:
+          ansible_host: <host-05-ip>
+    
+    loadbalancer:
+      hosts: 
+        <hostname-06>: 
+          ansible_host: <host-06-ip>
+    
+    mysql:
+      hosts: 
+        <hostname-07>: 
+          ansible_host: <host-07-ip>
+    
+    local:
+      hosts: 
+        control: 
+          ansible_connection: local

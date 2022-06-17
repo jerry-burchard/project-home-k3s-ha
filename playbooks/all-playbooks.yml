@@ -1,0 +1,8 @@
+# all-playbooks.yml
+
+---
+  - import_playbook: package-update.yml
+  - import_playbook: install-mysql.yml
+  - import_playbook: install-nginx.yml
+  - import_playbook: install-k3smaster.yml
+  - import_playbook: install-k3sworker.yml

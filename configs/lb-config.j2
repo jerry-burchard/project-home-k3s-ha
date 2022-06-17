@@ -1,0 +1,16 @@
+include /etc/nginx/modules-enabled/*.conf;
+
+events {}
+
+stream {
+  upstream k3s {
+  {% for hosts in groups['k3smaster'] %}
+    server {{hostvars[hosts]['ansible_host']}}:6443;
+  {% endfor %}
+  }
+
+  server {
+    listen 6443;
+    proxy_pass k3s;
+  }
+}

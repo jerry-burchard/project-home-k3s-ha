@@ -1,0 +1,25 @@
+# package-update.yml
+
+---
+  - hosts: [loadbalancer:mysql:k3smaster:k3sworker]
+    become: true
+    gather_facts: false
+    
+    tasks:
+      - name: update package cache
+        apt: 
+          update_cache=yes
+
+      - name: upgrade all apt packages 
+        apt: 
+          name=* 
+          state=latest
+
+      - name: check if reboot is required
+        stat:
+          path: /var/run/reboot-required
+        register: reboot_required
+
+      - name: reboot server
+        reboot:
+        when: reboot_required.stat.exists == true

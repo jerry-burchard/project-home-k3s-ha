@@ -1,0 +1,8 @@
+# inventory file
+inventory
+
+# ansible configuration
+ansible.cfg 
+
+# secrets file
+secrets.yml
