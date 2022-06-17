@@ -1,12 +1,11 @@
-Overview:
-  Home k3s HA environment consisting of the following servers:
-    - 2 x Intel NUCS (running Proxmox for virtualization)
-    - 1 x MySQL server
-    - 1 x Nginx load balancer
-    - 2 x k3s master nodes
-    - 3 x k3s worker nodes
-
-  The installation of all software on the operating system is done via Ansible playbooks.
+Overview:  
+Home k3s HA environment consisting of the following servers:
+  - 2 x Intel NUCS (running Proxmox for virtualization)
+  - 1 x MySQL server
+  - 1 x Nginx load balancer
+  - 2 x k3s master nodes
+  - 3 x k3s worker nodes  
+The installation of all software on the operating system is done via Ansible playbooks.
 
 Hardware:  
   - Intel NUCS (Proxmox Virtualaztion Servers)
