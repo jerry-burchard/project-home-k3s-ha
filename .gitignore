@@ -6,3 +6,6 @@ ansible.cfg
 
 # secrets file
 secrets.yml
+
+# install-k3sworker.yml
+install-worker.yml
