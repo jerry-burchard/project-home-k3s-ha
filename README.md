@@ -49,6 +49,11 @@ All virtual machines (Ubuntu 20.04 LTS):
     - k3s_mysql_password = password to set for the k3sadmin user
     - mysql ip address = IP address of the MySQL server
 
+./samples/install-k3sworker-sample.yml
+  - Rename file to install-k3sworker.yml and move to ../playbooks/
+  - Edit file setting the values for the following:
+    - lb_server_hostname = hostname of the load balancer in the inventory file
+
 **Secrets / Ansible Vault**
 
 Once ./secrets/secrets.yml is configured you need to encrypt the file with ansible-vault
