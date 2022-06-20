@@ -70,7 +70,8 @@ Set the vault password when prompted
 **Execution:**
 
 When all of the above is completed, execute the following command to test connectivity:
-  - ansible-playbook ./playbooks/ping.yml -K
+
+```ansible-playbook ./playbooks/ping.yml -K```
 
 If all servers ping successfully, execute the following command to run all the playbooks:
   - ansible-playbook ./playbooks/all-playbooks.yml --ask-vault-pass -K
