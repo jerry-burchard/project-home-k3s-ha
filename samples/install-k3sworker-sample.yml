@@ -13,5 +13,5 @@
         throttle: 1
         shell: curl -sfL https://get.k3s.io | sh -
         environment:
-          K3S_URL: https://{{hostvars['<lb server hostname>']['ansible_host']}}:6443
+          K3S_URL: https://{{hostvars['<lb_server_hostname>']['ansible_host']}}:6443
           K3S_TOKEN: '{{ k3s_join_token }}'
