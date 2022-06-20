@@ -54,6 +54,10 @@ All virtual machines (Ubuntu 20.04 LTS):
   - Edit file setting the values for the following:
     - lb_server_hostname = hostname of the load balancer in the inventory file
 
+Sample Folder Structure:
+
+![Folder Structure](images/folder_structure.jpg)
+
 **Secrets / Ansible Vault**
 
 Once ./secrets/secrets.yml is configured you need to encrypt the file with ansible-vault
