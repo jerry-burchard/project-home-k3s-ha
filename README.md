@@ -12,23 +12,21 @@ All software installation and configuration is done via Ansible playbooks.  Ther
 
 ## Hardware / Servers:
 
-| Hardware         |                                   |
-| ---------------- | --------------------------------- |
-| Operating System | Proxmox (Latest Version)          |
-| CPU              | i5-3427U CPU @ 1.80GHz (1 Socket) |
-| RAM              | 16 GB                             |
-| Disk Space       | 256 GB M2                         |
+| Physical Servers |                                                                      |
+| ---------------- | -------------------------------------------------------------------- |
+| Operating System | Proxmox (Latest Version) (2 servers configured as a cluster)         |
+| CPU              | i5-3427U CPU @ 1.80GHz (1 Socket)                                    |
+| RAM              | 16 GB                                                                |
+| Disk Space       | 256 GB M2                                                            |
 
 2 Proxmox servers were used and configured to be in a cluster.
 
-| Virtual Machines |                                   |
-| ---------------- | --------------------------------- |
-| Operating System | Ubuntu 20.04 LTS                  |
-| CPU              | 1 core                            |
-| RAM              | 2 GB                              |
-| Disk Space       | 20 GB                             |
-
-Adjust the above specs as required as these settings are just a starting point.  
+| Virtual Machines | (Adjust specs as needed)                                             |
+| ---------------- | -------------------------------------------------------------------- |
+| Operating System | Ubuntu 20.04 LTS                                                     |
+| CPU              | 1 core                                                               |
+| RAM              | 2 GB                                                                 |
+| Disk Space       | 20 GB                                                                |
 
 ## Prerequisites:
 
