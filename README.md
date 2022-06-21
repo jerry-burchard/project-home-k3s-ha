@@ -68,6 +68,7 @@ There is a samples directory with files you will need to rename and edit prior t
 ## Sample Folder Structure:
 
 The following image shows what your folder structure should look like when all files are moved to the proper location.
+
 ![Folder Structure](images/folder_structure.jpg)
 
 ## Secrets / Ansible Vault
