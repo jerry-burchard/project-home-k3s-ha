@@ -11,7 +11,7 @@
     tasks: 
       - name: install k3s master nodes
         throttle: 1
-        shell: curl -sfL https://get.k3s.io | sh -s - server --node-taint CriticalAddonsOnly=true:NoExecute --tls-san 10.0.50.25 --disable traefik
+        shell: curl -sfL https://get.k3s.io | sh -s - server --node-taint CriticalAddonsOnly=true:NoExecute --tls-san 10.0.50.25 --disable traefik --disable servicelb
         environment:
           K3S_DATASTORE_ENDPOINT: '{{ k3s_datatore }}'
           K3S_TOKEN: '{{ k3s_join_token }}'
