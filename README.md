@@ -1,5 +1,5 @@
 # Highly Availabile k3s Cluster with MySQL Datastore via Ansible
-## Overview:
+## Overview: 
 
 A HA k3s cluster utilizing a MySQL datastore and a Nginx load balancer.  This setup consists of the following servers:
   - 2 x Intel NUCS (running Proxmox for virtualization)
