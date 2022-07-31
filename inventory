@@ -1,0 +1,34 @@
+# hosts-dev
+
+all:
+  children:
+    k3smaster: 
+      hosts:
+        ackbar-01: 
+          ansible_host: 10.0.50.31
+        ackbar-02: 
+          ansible_host: 10.0.50.32
+
+    k3sworker:
+      hosts:
+        wedge-01:
+          ansible_host: 10.0.50.35
+        han-01:
+          ansible_host: 10.0.50.36
+        poe-01:
+          ansible_host: 10.0.50.37
+    
+    loadbalancer:
+      hosts: 
+        r2d2-01: 
+          ansible_host: 10.0.50.25
+    
+    mysql:
+      hosts: 
+        c3po-01: 
+          ansible_host: 10.0.50.26
+    
+    local:
+      hosts: 
+        control: 
+          ansible_connection: local

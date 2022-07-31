@@ -1,11 +1,11 @@
-# inventory file
-inventory
+# inventory file 
+# inventory
 
 # ansible configuration
-ansible.cfg 
+# ansible.cfg 
 
 # secrets file
-secrets.yml
+# secrets.yml
 
 # install-k3sworker.yml
-install-k3sworker.yml
+# install-k3sworker.yml
